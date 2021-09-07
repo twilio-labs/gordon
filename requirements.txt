@@ -1,0 +1,14 @@
+--index-url https://pypi.dev.twilio.com/simple/
+
+Flask==2.0.1
+requests==2.25.1
+gunicorn==20.1.0
+python-json-logger==2.0.1
+jira==2.0.0
+celery==5.1.2
+redis==3.5.3
+datadog==0.6.0
+PyGithub==1.53
+cryptography==3.4.6
+PyYAML==5.4
+jsonschema==3.2.0

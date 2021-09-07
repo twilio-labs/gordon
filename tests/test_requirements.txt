@@ -1,0 +1,4 @@
+--index-url https://pypi.dev.twilio.com/simple/
+pytest==6.2.4
+mock==4.0.3
+pycodestyle==2.7.0

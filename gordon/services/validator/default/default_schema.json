@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "version": {"type": "integer", "const": 1},
+    "organization": {"type": "string", "enum": ["twilio", "your-organization"]},
+    "jira_id": {"type": "string"},
+    "pagerduty_id": {"type": "string"}
+  },
+  "required": ["version", "organization", "jira_id", "pagerduty_id"]
+}
