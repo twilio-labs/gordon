@@ -1,0 +1,5 @@
+version: 1
+organization: acquisition
+jira_id: project-id
+pagerduty_id: pagerduty-schedule-id
+slack_id: slack-channel-id

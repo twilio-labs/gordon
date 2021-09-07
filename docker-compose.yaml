@@ -1,0 +1,46 @@
+version: '3'
+services:
+  gordon:
+    build: .
+    user: twilio
+    volumes:
+     - ./gordon:/home/twilio/app/gordon/gordon
+     - ./bin:/home/twilio/app/gordon/bin
+     - ./local_dev_secrets:/home/twilio/app/gordon/secrets
+    environment:
+      - GORDON_RUN_MODE=api
+    env_file:
+      - ./configuration/environment/localdev.env
+    command: flask run -h 0.0.0.0 -p 9001
+    ports:
+        - "9001:9001"
+
+  gordon-worker:
+      build: .
+      user: twilio
+      volumes:
+        - ./gordon:/home/twilio/app/gordon/gordon
+        - ./bin:/home/twilio/app/gordon/bin
+        - ./local_dev_secrets:/home/twilio/app/gordon/secrets
+      environment:
+        - GORDON_RUN_MODE=worker
+      env_file:
+        - ./configuration/environment/localdev.env
+      command: celery -A gordon.worker.celery_initialization.celery worker --loglevel=INFO
+      depends_on:
+        - redis
+
+  redis:
+    image: "redis:latest"
+
+  test:
+    build:
+      context: ./
+      dockerfile: Dockerfile.test
+    user: twilio
+    volumes:
+      - ./gordon:/home/twilio/app/gordon/gordon
+      - ./tests:/home/twilio/app/gordon/tests
+    env_file:
+      - configuration/environment/test.env
+    command: pytest -v -s

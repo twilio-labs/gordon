@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "version": {"type": "integer", "const": 1},
+    "organization": {"type": "string", "enum": ["acquisition-1", "acquisition-2"]},
+    "jira_id": {"type": "string"},
+    "pagerduty_id": {"type": "string"},
+    "slack_id": {"type":  "string"}
+  },
+  "required": ["version", "organization", "jira_id", "pagerduty_id", "slack_id"]
+}

@@ -1,0 +1,4 @@
+version: 1
+organization: org-name
+jira_id: project-id
+pagerduty_id: pagerduty-schedule-id
