@@ -1,7 +1,7 @@
 --index-url https://pypi.dev.twilio.com/simple/
 
 Flask==2.0.1
-requests==2.25.1
+requests==2.31.0
 gunicorn==20.1.0
 python-json-logger==2.0.1
 jira==2.0.0
