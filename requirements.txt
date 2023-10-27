@@ -9,6 +9,7 @@ celery==5.1.2
 redis==3.5.3
 datadog==0.6.0
 PyGithub==1.53
-cryptography==3.4.6
+cryptography==41.0.5
 PyYAML==5.4
 jsonschema==3.2.0
+werkzeug>=3.0.1 # not directly required, pinned by Snyk to avoid a vulnerability
